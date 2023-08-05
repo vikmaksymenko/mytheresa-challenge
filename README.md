@@ -1,4 +1,4 @@
-Playwright Demo
+Mytheresa Challenge
 ===============
 
 Install
@@ -20,3 +20,9 @@ npx playwright test
 ```bash
 npx playwright show-report
 ```
+
+Notes about tests
+-----------------
+
+* Test 1 does a lot of requests to https://www.mytheresa.com/, so the tests that checks status codes might fail
+* Test 3 writes CSV to the file `test-results\prs.csv` and to the console
