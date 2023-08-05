@@ -1,12 +1,13 @@
-import { test, expect } from '@playwright/test';
+import { test } from '../fixtures/default.fixture';
 import { MenPage } from '../pages/menPage';
 
 
 test.describe('1 Test Case', () => {
 
-    test('As a tester, I want to make sure no JavaScript errors when you visit /men page', async ({ page, request }) => {
+    test('As a tester, I want to make sure no JavaScript errors when you visit /men page', async ({ page }) => {
         const menPage = new MenPage(page, true);
         await menPage.open();
+        await menPage.shouldBeOnPage();
         await menPage.checkJSErrors();
     });
 
@@ -15,6 +16,7 @@ test.describe('1 Test Case', () => {
     test('As a tester, I want to check if a page is returning the expected status code', async ({ page, request }) => {
         const menPage = new MenPage(page)
         await menPage.open();
+        await menPage.shouldBeOnPage();
         await menPage.validateLinks(request);
     });
 });

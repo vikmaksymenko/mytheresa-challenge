@@ -1,6 +1,6 @@
 import { APIRequestContext, ConsoleMessage, Page, expect, test } from '@playwright/test';
 
-export class BasePage {
+export abstract class BasePage {
     readonly page: Page;
     readonly url: string;
 
@@ -19,8 +19,12 @@ export class BasePage {
         }
     }
 
+    abstract shouldBeOnPage(): Promise<void>;
+
     async open() {
-        await test.step(`Open ${this.url}`, async () => await this.page.goto(this.url));
+        await test.step(`Open ${this.url}`, async () => {
+            await this.page.goto(this.url);
+        });
     }
 
     async validateLinks(request: APIRequestContext) {
@@ -48,6 +52,12 @@ export class BasePage {
         await test.step(`Check if there is no JavaScript errors on ${this.url}`, async () => {
             const errorMessages = this.consoleLog.filter(msg => msg.type() === 'error').map(msg => msg.text());
             expect(errorMessages, `JavaScript errors on ${this.url}: \n${JSON.stringify(errorMessages, null, 2)}`).toHaveLength(0);
+        });
+    }
+
+    async goToLoginPage() {
+        await test.step('Go to login page', async () => {
+            await this.page.locator('.headerdesktop').locator('//a[contains(@href, "/account/login")]').click();
         });
     }
 }
