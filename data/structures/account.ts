@@ -13,7 +13,3 @@ export class Account {
         this.salutation = salutation;
     }
 }
-
-export const accounts = {
-    registered: new Account('rumplethump@maildrop.cc', 'e{:R.}y<-D7*ynQv', 'Rumple', 'Thump', 'Mr.'),
-}

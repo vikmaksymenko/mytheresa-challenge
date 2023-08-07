@@ -1,6 +1,10 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.36.2"
+    "@playwright/test": "^1.36.2",
+    "dotenv": "^16.3.1"
   },
-  "scripts": {}
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ci": "npm install && npm test"
+  }
 }
