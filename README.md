@@ -1,4 +1,4 @@
-Mytheresa Challenge
+Mytheresa Challenge ![Run Playwright tests](https://github.com/vikmaksymenko/mytheresa-challenge/actions/workflows/main.yml/badge.svg)
 ===============
 
 Prerequisites
@@ -58,6 +58,11 @@ Running with Docker
 docker run -it --rm --ipc=host  -v PATH_TO_PROJECT_DIRECTORY:/mytheresa-challenge -w /mytheresa-challenge mcr.microsoft.com/playwright:v1.36.2-jammy npm run test:ci
 ```
 Note that version in image tag should match the version of playwright in `package.json`
+
+Running with GitHub Actions
+---------------------------
+
+The project is integrated with [GitHub Actions](https://github.com/vikmaksymenko/mytheresa-challenge/actions), HTML report is published as a job artifact. 
 
 Notes about tests
 -----------------
