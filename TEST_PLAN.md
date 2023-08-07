@@ -49,17 +49,20 @@ The following features will be excluded from testing:
 In order to test the feature, we will combine component, integration, and end-to-end testing:
 
 1.  Client-side validations (the ones, that appear on the client side without involving requests to the server) will be done on the component level with mocked back-end. This includes:
-    a.  Validation, that the login form can't be submitted with incorrect values of email or password (empty, more than N symbols, or with non-ASCII symbols), The login button should be disabled, error message should be displayed
-    b.  UI checks (form elements are visible and acceptable on all supported devices and platforms both in album and portrait orientation; password data is masked)
-    c.  The data, filled into the email and the password field remain after the application maximize and minimize.
+
+    1.  Validation, that the login form can't be submitted with incorrect values of email or password (empty, more than N symbols, or with non-ASCII symbols), The login button should be disabled, error message should be displayed
+    2.  UI checks (form elements are visible and acceptable on all supported devices and platforms both in album and portrait orientation; password data is masked)
+    3.  The data, filled into the email and the password field remain after the application maximize and minimize.
+    
     The testing should be performed on all required platforms and browsers.
-2.  Server-side validations (request data validation on the server) will be done with unit and API tests (sending requests and validating the response) without any UI client involved. This includes:
-    a.  Fields validations (component level tests, DB connection is not required or can be mocked)
-    b.  Login with "correct" credentials (integration level tests, DB connection required)
-    c.  Login with "incorrect" credentials (integration level tests, DB connection required)
-3.  End-to-end scenarios should be performed using web and mobile clients that send requests to the server with the implemented feature. This includes:
-    a.  Login with "correct" credentials
-    b.  Login with "incorrect" credentials (case with email, not registered in the system, and case with incorrect password).
+3.  Server-side validations (request data validation on the server) will be done with unit and API tests (sending requests and validating the response) without any UI client involved. This includes:
+    1.  Fields validations (component level tests, DB connection is not required or can be mocked)
+    2.  Login with "correct" credentials (integration level tests, DB connection required)
+    3.  Login with "incorrect" credentials (integration level tests, DB connection required)
+4.  End-to-end scenarios should be performed using web and mobile clients that send requests to the server with the implemented feature. This includes:
+    1.  Login with "correct" credentials
+    2.  Login with "incorrect" credentials (case with email, not registered in the system, and case with incorrect password).
+    
     The testing should be performed on the most valuable versions of platform and browsers (end-to-end tests are time consuming and most of the UI specific issues should be found during the client-side validations).
 
 All the tests should be automated on the corresponding level using corresponding tools for unit, UI, and API testing.
