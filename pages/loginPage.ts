@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { BasePage } from "./basePage";
-import { Account } from "../data/accounts";
+import { Account } from "../data/structures/account";
 
 export class LoginPage extends BasePage {
     private readonly loginButton = this.page.locator('div').filter({ hasText: /^Log in$/ }).nth(1);

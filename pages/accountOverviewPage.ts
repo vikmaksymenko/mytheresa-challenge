@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { BasePage } from "./basePage";
-import { Account } from "../data/accounts";
+import { Account } from "../data/structures/account";
 
 export class AccountOverviewPage extends BasePage {
     async shouldBeOnPage() {
